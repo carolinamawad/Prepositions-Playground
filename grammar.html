@@ -1,52 +1,182 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grammar – Prepositions of Place</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
+<body class="bg-gray-50 text-gray-800">
 
-<h2>Mini Test</h2>
-<form id="miniTest"></form>
-<p id="miniResult"></p>
-</div>
+  <!-- HEADER -->
+  <header class="bg-blue-600 text-white p-6 shadow-md">
+    <h1 class="text-3xl font-bold text-center">Grammar: Prepositions of Place</h1>
+  </header>
 
+  <!-- NAV -->
+  <nav class="flex justify-center gap-6 bg-white shadow p-4 text-lg font-medium">
+    <a href="index.html" class="hover:text-blue-600">Home</a>
+    <a href="test.html" class="hover:text-blue-600">Test</a>
+    <a href="grammar.html" class="hover:text-blue-600">Grammar</a>
+    <a href="fun.html" class="hover:text-blue-600">Fun Section</a>
+  </nav>
 
+  <main class="max-w-3xl mx-auto p-6 space-y-10">
 
-<script>
-const miniQs = [
-{q:"They have lots of pictures _____ their fridge.", options:["in","on"], correct:1},
-{q:"We put the old books _____ a box.", options:["at","in"], correct:1},
-{q:"I just called him _____ work.", options:["at","on"], correct:0},
-{q:"I don't like to study _____ home.", options:["at","in"], correct:0},
-{q:"We stayed in a cabin _____ a lake.", options:["in","on"], correct:1},
-{q:"My office is _____ the 20th floor.", options:["in","on"], correct:1},
-{q:"I like to listen to music when I'm _____ the gym.", options:["at","on"], correct:0},
-{q:"There are Roman ruins _____ Jordan.", options:["at","in"], correct:1}
-];
+    <!-- GRAMMAR EXPLANATION -->
+    <section class="bg-white p-6 rounded-xl shadow-md">
+      <h2 class="text-2xl font-bold mb-4">Grammar Explanation</h2>
 
+      <p>We can use the prepositions <strong>in</strong>, <strong>on</strong> and <strong>at</strong> to say where things are. They go before nouns.</p>
+      <p class="mt-2">I am <strong>in</strong> the kitchen.<br>
+      My dog likes sleeping <strong>on</strong> the sofa.<br>
+      The children eat lunch <strong>at</strong> school.</p>
 
-const miniForm=document.getElementById('miniTest');
-miniQs.forEach((item,i)=>{
-const div=document.createElement('div');
-div.className='question-box';
-div.innerHTML=`<p>${item.q}</p>` + item.options.map((opt,j)=>`<label><input type='radio' name='m${i}' value='${j}'> ${opt}</label><br>`).join('');
-miniForm.appendChild(div);
-});
+      <h3 class="text-xl font-semibold mt-6">in</h3>
+      <p>We use <strong>in</strong> to talk about a place that is inside a bigger space.</p>
+      <ul class="list-disc list-inside mt-2">
+        <li>The clothes are <strong>in</strong> the wardrobe.</li>
+        <li>The children are playing <strong>in</strong> the park.</li>
+        <li>There’s a bookshop <strong>in</strong> the shopping centre.</li>
+        <li>My grandmother was born <strong>in</strong> Sweden.</li>
+      </ul>
 
+      <h3 class="text-xl font-semibold mt-6">on</h3>
+      <p>We use <strong>on</strong> to talk about location on a surface.</p>
+      <ul class="list-disc list-inside mt-2">
+        <li>The books are <strong>on</strong> the desk.</li>
+        <li>We live <strong>on</strong> the fifth floor.</li>
+        <li>There are pictures <strong>on</strong> the wall.</li>
+      </ul>
 
-const btn=document.createElement('button');
-btn.textContent='Submit';
-btn.className='btn';
-btn.type='button';
-miniForm.appendChild(btn);
+      <h3 class="text-xl font-semibold mt-6">at</h3>
+      <p>We use <strong>at</strong> in many common phrases, especially with specific activities or exact places.</p>
+      <ul class="list-disc list-inside mt-2">
+        <li>I’m <strong>at</strong> work.</li>
+        <li>She’s working <strong>at</strong> home today.</li>
+        <li>The children are <strong>at</strong> school.</li>
+        <li>I live <strong>at</strong> 15 Craig Street.</li>
+      </ul>
+    </section>
 
+    <!-- VIDEO -->
+    <section class="bg-white p-6 rounded-xl shadow-md">
+      <h2 class="text-2xl font-bold mb-4">Video: Prepositions of Place</h2>
+      <iframe class="w-full rounded-xl shadow-md" height="315"
+        src="https://www.youtube.com/embed/4530pfmquro"
+        allowfullscreen></iframe>
+    </section>
 
-btn.onclick=()=>{
-let score=0;
-miniQs.forEach((item,i)=>{
-const ans=document.querySelector(`input[name='m${i}']:checked`);
-if(ans && Number(ans.value)===item.correct) score++;
-});
-document.getElementById('miniResult').textContent = `Good job! 🎉 You did really well. Click below to return home and continue learning.`;
-};
-</script>
+    <!-- TEST -->
+    <section class="bg-white p-6 rounded-xl shadow-md">
+      <h2 class="text-2xl font-bold mb-4">Grammar A1-A2: Prepositions of place – "in", "on", "at"</h2>
+      <p class="mb-4">Choose the correct preposition.</p>
+
+      <form id="grammarForm" class="space-y-6">
+
+        <!-- Each question -->
+        <div>
+          <label>1. They have lots of pictures _____ their fridge.</label>
+          <select class="border p-2 rounded w-full" name="q1">
+            <option>in</option>
+            <option>on</option>
+          </select>
+        </div>
+
+        <div>
+          <label>2. We put the old books _____ a box.</label>
+          <select class="border p-2 rounded w-full" name="q2">
+            <option>at</option>
+            <option>in</option>
+          </select>
+        </div>
+
+        <div>
+          <label>3. I just called him _____ work, and he wasn't there.</label>
+          <select class="border p-2 rounded w-full" name="q3">
+            <option>at</option>
+            <option>on</option>
+          </select>
+        </div>
+
+        <div>
+          <label>4. I don't like to study _____ home. It's too noisy.</label>
+          <select class="border p-2 rounded w-full" name="q4">
+            <option>at</option>
+            <option>in</option>
+          </select>
+        </div>
+
+        <div>
+          <label>5. Last summer we stayed in a cabin _____ a lake.</label>
+          <select class="border p-2 rounded w-full" name="q5">
+            <option>in</option>
+            <option>on</option>
+          </select>
+        </div>
+
+        <div>
+          <label>6. My office is _____ the 20th floor.</label>
+          <select class="border p-2 rounded w-full" name="q6">
+            <option>in</option>
+            <option>on</option>
+          </select>
+        </div>
+
+        <div>
+          <label>7. I like to listen to music when I'm _____ the gym.</label>
+          <select class="border p-2 rounded w-full" name="q7">
+            <option>at</option>
+            <option>on</option>
+          </select>
+        </div>
+
+        <div>
+          <label>8. There are important Roman ruins _____ Jordan.</label>
+          <select class="border p-2 rounded w-full" name="q8">
+            <option>at</option>
+            <option>in</option>
+          </select>
+        </div>
+
+        <button type="button" onclick="checkGrammar()"
+          class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 w-full">
+          Submit Answers
+        </button>
+      </form>
+
+      <p id="grammarResult" class="mt-6 text-xl font-semibold text-center"></p>
+    </section>
+
+    <!-- RETURN HOME BUTTON -->
+    <div class="text-center">
+      <a href="index.html"
+        class="bg-blue-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-blue-700">
+        Return Home
+      </a>
+    </div>
+
+  </main>
+
+  <script>
+    function checkGrammar() {
+      const correct = ["on", "in", "at", "at", "on", "on", "at", "in"];
+      const form = document.forms["grammarForm"];
+      let score = 0;
+
+      correct.forEach((ans, i) => {
+        if (form[`q${i+1}`].value === ans) score++;
+      });
+
+      const result = document.getElementById("grammarResult");
+
+      result.innerHTML =
+        `Good job! 🎉 You got <strong>${score}/8</strong>.  
+        Let’s keep practicing with our fun section. <br>
+        Click below to go back to Home and continue learning!`;
+    }
+  </script>
+
 </body>
 </html>
-
-
