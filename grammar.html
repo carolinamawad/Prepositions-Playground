@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+
+<h2>Mini Test</h2>
+<form id="miniTest"></form>
+<p id="miniResult"></p>
+</div>
+
+
+<a href="index.html" class="btn return">Return Home</a>
+
+
+<script>
+const miniQs = [
+{q:"They have lots of pictures _____ their fridge.", options:["in","on"], correct:1},
+{q:"We put the old books _____ a box.", options:["at","in"], correct:1},
+{q:"I just called him _____ work.", options:["at","on"], correct:0},
+{q:"I don't like to study _____ home.", options:["at","in"], correct:0},
+{q:"We stayed in a cabin _____ a lake.", options:["in","on"], correct:1},
+{q:"My office is _____ the 20th floor.", options:["in","on"], correct:1},
+{q:"I like to listen to music when I'm _____ the gym.", options:["at","on"], correct:0},
+{q:"There are Roman ruins _____ Jordan.", options:["at","in"], correct:1}
+];
+
+
+const miniForm=document.getElementById('miniTest');
+miniQs.forEach((item,i)=>{
+const div=document.createElement('div');
+div.className='question-box';
+div.innerHTML=`<p>${item.q}</p>` + item.options.map((opt,j)=>`<label><input type='radio' name='m${i}' value='${j}'> ${opt}</label><br>`).join('');
+miniForm.appendChild(div);
+});
+
+
+const btn=document.createElement('button');
+btn.textContent='Submit';
+btn.className='btn';
+btn.type='button';
+miniForm.appendChild(btn);
+
+
+btn.onclick=()=>{
+let score=0;
+miniQs.forEach((item,i)=>{
+const ans=document.querySelector(`input[name='m${i}']:checked`);
+if(ans && Number(ans.value)===item.correct) score++;
+});
+document.getElementById('miniResult').textContent = `Good job! 🎉 You did really well. Click below to return home and continue learning.`;
+};
+</script>
+</body>
+</html>
+
+
+
+
+<!-- =============================== -->
+<!-- fun.html (Fun Section) -->
+<!-- =============================== -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Fun Section</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+<h1>Fun Section 🎉</h1>
+<p>Learn English through games, challenges, and adventures!</p>
+</header>
+
+
+<div class="container">
+<h2>Play & Learn</h2>
+<p>Enjoy these activities:</p>
+
+
+<a class="btn" href="https://wordwall.net/es/resource/102482878/prepositions-of-place-exercise-labinnova">Prepositions of Place</a>
+<a class="btn" href="https://view.genially.com/691f623384fcc3aaf12e449e/interactive-content-secret-agent-escape">Escape the Room</a>
+<a class="btn" href="https://wordwall.net/es/resource/4040021/prepositions-of-place">Prepositions at Home</a>
+<a class="btn" href="https://wordwall.net/es/resource/10488242/prepositions-of-place">Fun Activity</a>
+<a class="btn" href="https://wordwall.net/es/resource/2635457/prepositions-of-place">Let's Review</a>
+<a class="btn" href="https://wordwall.net/es/resource/2985976/prepositions-of-place">Wheel</a>
+<a class="btn" href="https://wordwall.net/es/resource/57543747/starter-prepositions-of-place">Starter</a>
+<a class="btn" href="https://wordwall.net/es/resource/78310442/memory-game-prepositions-of-place">Memory Game</a>
+<a class="btn" href="https://wordwall.net/es/resource/5827965/my-bedroom-prepositions-of-place">My Bedroom</a>
+<a class="btn" href="https://wordwall.net/es/resource/15347124/prepositions-of-place">Crossword</a>
+</div>
+
+
+<a href="index.html" class="btn return">Return Home</a>
+</body>
+</html>
