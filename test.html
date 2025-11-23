@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<form id="quizForm"></form>
+<h2 id="result"></h2>
+</div>
+
+
+<a href="index.html" class="btn return">Return Home</a>
+
+
+<script>
+const questions = [
+{q: "1. Where is the cat? The cat is ___ the box.", options:["on","in","under","behind"], correct:1},
+{q: "2. The ball is ___ the table.", options:["in","on","between","next to"], correct:1},
+{q: "3. The dog is ___ the chair.", options:["under","in","on","behind"], correct:0},
+{q: "4. The picture is ___ the wall.", options:["in","on","under","between"], correct:1},
+{q: "5. The school is ___ the park and the supermarket.", options:["under","between","behind","in"], correct:1},
+{q: "6. The boy is standing ___ the door.", options:["behind","under","in front of","on"], correct:2},
+{q: "7. The shoes are ___ the bed.", options:["on","in","under","behind"], correct:2},
+{q: "8. The teacher is ___ the students.", options:["in front of","behind","between","under"], correct:0},
+{q: "9. The book is ___ the bag.", options:["on","in","under","next to"], correct:1},
+{q: "10. The lamp is ___ the sofa.", options:["next to","in","under","between"], correct:0}
+];
+
+
+const form = document.getElementById("quizForm");
+questions.forEach((item, i) => {
+const div = document.createElement("div");
+div.className = "question-box";
+div.innerHTML = `<p>${item.q}</p>` + item.options.map((opt, j)=>{
+return `<label><input type='radio' name='q${i}' value='${j}'> ${opt}</label><br>`;
+}).join("");
+form.appendChild(div);
+});
+
+
+const submitBtn = document.createElement("button");
+submitBtn.textContent = "Submit";
+submitBtn.className = "btn";
+submitBtn.type = "button";
+form.appendChild(submitBtn);
+
+
+submitBtn.onclick = () => {
+let score = 0;
+questions.forEach((item, i) => {
+const answer = document.querySelector(`input[name='q${i}']:checked`);
+if (answer && Number(answer.value) === item.correct) score += 10;
+});
+
+
+const result = document.getElementById("result");
+if (score >= 80) result.textContent = `${score} points: Great job! You really know your prepositions of place. Keep shining! ✨`;
+else result.textContent = `${score} points: Good effort! Keep practicing and you will master prepositions soon. Don’t give up! 💪`;
+};
+</script>
+</body>
+</html>
