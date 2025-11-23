@@ -1,57 +1,208 @@
 <!DOCTYPE html>
-<form id="quizForm"></form>
-<h2 id="result"></h2>
-</div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test Your Knowledge</title>
 
+  <!-- TAILWIND -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-<a href="index.html" class="btn return">Return Home</a>
+<body class="bg-purple-50 text-gray-800">
 
+  <!-- HEADER -->
+  <header class="bg-purple-300 text-white p-6 shadow-md">
+    <h1 class="text-3xl font-bold text-center">📝 Test: Prepositions of Place (Level A1)</h1>
+  </header>
 
-<script>
-const questions = [
-{q: "1. Where is the cat? The cat is ___ the box.", options:["on","in","under","behind"], correct:1},
-{q: "2. The ball is ___ the table.", options:["in","on","between","next to"], correct:1},
-{q: "3. The dog is ___ the chair.", options:["under","in","on","behind"], correct:0},
-{q: "4. The picture is ___ the wall.", options:["in","on","under","between"], correct:1},
-{q: "5. The school is ___ the park and the supermarket.", options:["under","between","behind","in"], correct:1},
-{q: "6. The boy is standing ___ the door.", options:["behind","under","in front of","on"], correct:2},
-{q: "7. The shoes are ___ the bed.", options:["on","in","under","behind"], correct:2},
-{q: "8. The teacher is ___ the students.", options:["in front of","behind","between","under"], correct:0},
-{q: "9. The book is ___ the bag.", options:["on","in","under","next to"], correct:1},
-{q: "10. The lamp is ___ the sofa.", options:["next to","in","under","between"], correct:0}
-];
+  <main class="max-w-3xl mx-auto p-6">
 
+    <!-- INTRO -->
+    <section class="bg-white p-6 rounded-xl shadow-md mb-6">
+      <p class="mb-4">
+        Do you know how to use <strong>in</strong>, <strong>on</strong> and <strong>at</strong> to talk about location?
+        Test what you know with interactive exercises and read the explanation to help you.
+      </p>
 
-const form = document.getElementById("quizForm");
-questions.forEach((item, i) => {
-const div = document.createElement("div");
-div.className = "question-box";
-div.innerHTML = `<p>${item.q}</p>` + item.options.map((opt, j)=>{
-return `<label><input type='radio' name='q${i}' value='${j}'> ${opt}</label><br>`;
-}).join("");
-form.appendChild(div);
-});
+      <p class="font-semibold mb-2">Look at these examples:</p>
 
+      <ul class="list-disc list-inside space-y-1">
+        <li>Please put the book on the shelf.</li>
+        <li>They live in Helsinki.</li>
+        <li>You should keep milk in the fridge.</li>
+        <li>Mette is studying at the library.</li>
+      </ul>
+    </section>
 
-const submitBtn = document.createElement("button");
-submitBtn.textContent = "Submit";
-submitBtn.className = "btn";
-submitBtn.type = "button";
-form.appendChild(submitBtn);
+    <!-- QUIZ FORM -->
+    <form id="quizForm" class="bg-white p-6 rounded-xl shadow-md space-y-6">
 
+      <h2 class="text-xl font-bold mb-4">Questions</h2>
 
-submitBtn.onclick = () => {
-let score = 0;
-questions.forEach((item, i) => {
-const answer = document.querySelector(`input[name='q${i}']:checked`);
-if (answer && Number(answer.value) === item.correct) score += 10;
-});
+      <!-- Question Template -->
+      <div>
+        <label class="font-semibold">1. Where is the cat? The cat is ___ the box.</label>
+        <select name="q1" class="w-full mt-2 p-2 border rounded">
+          <option value="">Select an answer</option>
+          <option>on</option>
+          <option>in</option>
+          <option>under</option>
+          <option>behind</option>
+        </select>
+      </div>
 
+      <div>
+        <label class="font-semibold">2. The ball is ___ the table.</label>
+        <select name="q2" class="w-full mt-2 p-2 border rounded">
+          <option value="">Select an answer</option>
+          <option>in</option>
+          <option>on</option>
+          <option>between</option>
+          <option>next to</option>
+        </select>
+      </div>
 
-const result = document.getElementById("result");
-if (score >= 80) result.textContent = `${score} points: Great job! You really know your prepositions of place. Keep shining! ✨`;
-else result.textContent = `${score} points: Good effort! Keep practicing and you will master prepositions soon. Don’t give up! 💪`;
-};
-</script>
+      <div>
+        <label class="font-semibold">3. The dog is ___ the chair.</label>
+        <select name="q3" class="w-full mt-2 p-2 border rounded">
+          <option value="">Select an answer</option>
+          <option>under</option>
+          <option>in</option>
+          <option>on</option>
+          <option>behind</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="font-semibold">4. The picture is ___ the wall.</label>
+        <select name="q4" class="w-full mt-2 p-2 border rounded">
+          <option value="">Select an answer</option>
+          <option>in</option>
+          <option>on</option>
+          <option>under</option>
+          <option>between</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="font-semibold">5. The school is ___ the park and the supermarket.</label>
+        <select name="q5" class="w-full mt-2 p-2 border rounded">
+          <option value="">Select an answer</option>
+          <option>under</option>
+          <option>between</option>
+          <option>behind</option>
+          <option>in</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="font-semibold">6. The boy is standing ___ the door.</label>
+        <select name="q6" class="w-full mt-2 p-2 border rounded">
+          <option value="">Select an answer</option>
+          <option>behind</option>
+          <option>under</option>
+          <option>in front of</option>
+          <option>on</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="font-semibold">7. The shoes are ___ the bed.</label>
+        <select name="q7" class="w-full mt-2 p-2 border rounded">
+          <option value="">Select an answer</option>
+          <option>on</option>
+          <option>in</option>
+          <option>under</option>
+          <option>behind</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="font-semibold">8. The teacher is ___ the students.</label>
+        <select name="q8" class="w-full mt-2 p-2 border rounded">
+          <option value="">Select an answer</option>
+          <option>in front of</option>
+          <option>behind</option>
+          <option>between</option>
+          <option>under</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="font-semibold">9. The book is ___ the bag.</label>
+        <select name="q9" class="w-full mt-2 p-2 border rounded">
+          <option value="">Select an answer</option>
+          <option>on</option>
+          <option>in</option>
+          <option>under</option>
+          <option>next to</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="font-semibold">10. The lamp is ___ the sofa.</label>
+        <select name="q10" class="w-full mt-2 p-2 border rounded">
+          <option value="">Select an answer</option>
+          <option>next to</option>
+          <option>in</option>
+          <option>under</option>
+          <option>between</option>
+        </select>
+      </div>
+
+      <button type="button" onclick="checkScore()"
+        class="bg-purple-400 hover:bg-purple-500 text-white font-bold py-2 px-6 rounded-full shadow mt-4">
+        Submit Answers
+      </button>
+    </form>
+
+    <!-- SCORE RESULT -->
+    <div id="result" class="mt-6 text-center text-xl font-semibold"></div>
+
+  </main>
+
+  <!-- RETURN BUTTON -->
+  <div class="w-full flex justify-end p-6">
+    <a href="index.html"
+      class="bg-purple-300 hover:bg-purple-400 text-white font-bold py-2 px-6 rounded-full shadow">
+      Return Home
+    </a>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    function checkScore() {
+      const answers = {
+        q1: "in",
+        q2: "on",
+        q3: "under",
+        q4: "on",
+        q5: "between",
+        q6: "in front of",
+        q7: "under",
+        q8: "in front of",
+        q9: "in",
+        q10: "next to"
+      };
+
+      let score = 0;
+
+      for (let q in answers) {
+        const userAnswer = document.querySelector(`[name="${q}"]`).value;
+        if (userAnswer === answers[q]) score += 10;
+      }
+
+      const result = document.getElementById("result");
+
+      if (score >= 80) {
+        result.innerHTML = `✨ <strong>${score} points:</strong> Great job! You really know your prepositions of place. Keep shining! ✨`;
+      } else {
+        result.innerHTML = `💪 <strong>${score} points:</strong> Good effort! Keep practicing and you will master prepositions soon. Don’t give up! 💪`;
+      }
+    }
+  </script>
+
 </body>
 </html>
+
